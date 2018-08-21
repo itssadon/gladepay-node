@@ -6,6 +6,9 @@
   "scripts": {
     "test": "mocha --reporter spec"
   },
+  "engines": {
+    "node": ">=4.2.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@gitlab.com/gladepay-apis/gladepay-node.git"
@@ -25,5 +28,16 @@
   "bugs": {
     "url": "https://gitlab.com/gladepay-apis/gladepay-node/issues"
   },
-  "homepage": "https://gitlab.com/gladepay-apis/gladepay-node#readme"
+  "homepage": "https://gitlab.com/gladepay-apis/gladepay-node#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "mitt": "^1.1.3",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
 }
