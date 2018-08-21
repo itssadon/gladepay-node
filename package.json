@@ -1,0 +1,29 @@
+{
+  "name": "@yottabit/gladepay-node",
+  "version": "0.1.0",
+  "description": "A NodeJS library that simplifies payment with Gladepay APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/gladepay-apis/gladepay-node.git"
+  },
+  "keywords": [
+    "API",
+    "Payments",
+    "Fintech",
+    "Naira",
+    "Gladepay",
+    "Node",
+    "NPM",
+    "JavaScript"
+  ],
+  "author": "Abubakar Hassan <abubakarhassan59@gmail.com> (https://www.twitter.com/itssadon/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/gladepay-apis/gladepay-node/issues"
+  },
+  "homepage": "https://gitlab.com/gladepay-apis/gladepay-node#readme"
+}
