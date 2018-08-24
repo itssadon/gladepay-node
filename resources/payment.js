@@ -9,6 +9,6 @@ module.exports = {
     initiate: {
         method: "post",
         route: [route, "/initiate"].join(""),
-        params: ["action", "paymentType", "user*", "card*", "amount*", "country*", "currency*"]
+        params: ["action*", "paymentType*", "user*", "amount*"]
     }
 };
