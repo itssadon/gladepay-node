@@ -4,7 +4,7 @@
  */
 
 const request = require('request-promise');
-const endpoint = 'https://mc.payit.ng';
+const endpoint = 'https://api.gladepay.com'; //'https://mc.payit.ng';
 const Events = require("./resources/events");
 
 function Gladepay(key) {
