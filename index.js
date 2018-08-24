@@ -25,7 +25,7 @@ const resources = {
     gtbank: require("./resources/gtbank"),
     merchant: require("./resources/merchant"),
     transaction: require("./resources/transaction"),
-    changeback: require("./resources/chargeback")
+    change_back: require("./resources/charge_back")
 };
 
 Gladepay.prototype = {
