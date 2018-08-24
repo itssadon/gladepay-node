@@ -7,13 +7,14 @@ const request = require('request-promise');
 const endpoint = 'https://api.gladepay.com'; //'https://mc.payit.ng';
 const Events = require("./resources/events");
 
-function Gladepay(key) {
+function Gladepay(merchantId, merchantKey) {
     if (!(this instanceof Gladepay)) {
-        return new Gladepay(key);
+        return new Gladepay(merchantId, merchantKey);
     }
 
     this.endpoint = endpoint;
-    this.key = key;
+    this.mid = merchantId;
+    this.key = merchantKey;
     this.importResources();
 
     // Setup Events
@@ -21,11 +22,7 @@ function Gladepay(key) {
 }
 
 const resources = {
-    threeds: require("./resources/threeds"),
-    gtbank: require("./resources/gtbank"),
-    merchant: require("./resources/merchant"),
-    transaction: require("./resources/transaction"),
-    change_back: require("./resources/charge_back")
+    transaction: require("./resources/payment")
 };
 
 Gladepay.prototype = {
@@ -100,7 +97,8 @@ Gladepay.prototype = {
                 json: true,
                 method: method.toUpperCase(),
                 headers: {
-                    Authorization: `Bearer ${me.key}`
+                    mid: `${me.mid}`,
+                    key: `${me.key}`
                 }
             };
 
