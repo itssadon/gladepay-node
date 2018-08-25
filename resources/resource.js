@@ -31,10 +31,24 @@ module.exports = {
   account_name: {
     method: "get",
     route: [route].join(""),
-    params: [
-      {"inquire": "accountname"},
+    params: [{
+        "inquire": "accountname"
+      },
       "accountnumber*",
       "bankcode*"
+    ]
+  },
+
+  /**
+   * Get Card Details
+   */
+  card_details: {
+    method: "get",
+    route: [route].join(""),
+    params: [{
+        "inquire": "card"
+      },
+      "card_no*"
     ]
   }
 };
