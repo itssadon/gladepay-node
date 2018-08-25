@@ -36,5 +36,23 @@ module.exports = {
       "currency*",
       "recurrent*"
     ]
+  },
+
+  /**
+   * Installment
+   */
+  installment: {
+    method: "put",
+    route: [route].join(""),
+    params: [
+      "action*",
+      "paymentType*",
+      "user*",
+      "card*",
+      "amount*",
+      "country*",
+      "currency*",
+      "installment*"
+    ]
   }
 };
