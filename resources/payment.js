@@ -9,9 +9,10 @@ module.exports = {
   card_payment: {
     method: "put",
     route: [route].join(""),
-    params: [
-      "action*",
-      "paymentType*",
+    params: [{
+        "action": "initiate",
+        "paymentType": "card"
+      },
       "user*",
       "card*",
       "amount*",
@@ -26,9 +27,10 @@ module.exports = {
   recurrent: {
     method: "put",
     route: [route].join(""),
-    params: [
-      "action*",
-      "paymentType*",
+    params: [{
+        "action": "initiate",
+        "paymentType": "card"
+      },
       "user*",
       "card*",
       "amount*",
@@ -44,9 +46,10 @@ module.exports = {
   installment: {
     method: "put",
     route: [route].join(""),
-    params: [
-      "action*",
-      "paymentType*",
+    params: [{
+        "action": "initiate",
+        "paymentType": "card"
+      },
       "user*",
       "card*",
       "amount*",
@@ -62,9 +65,10 @@ module.exports = {
   charge_card: {
     method: "put",
     route: [route].join(""),
-    params: [
-      "action*",
-      "paymentType*",
+    params: [{
+        "action": "charge",
+        "paymentType": "card"
+      },
       "user*",
       "card*",
       "amount*",
@@ -76,12 +80,15 @@ module.exports = {
   },
 
   /**
-   * Charge card
+   * Charge token
    */
   charge_token: {
     method: "put",
     route: [route].join(""),
-    params: ["action*", "paymentType*", "token*", "user*", "amount*"]
+    params: [{
+      "action": "charge",
+      "paymentType": "token"
+    }, "token*", "user*", "amount*"]
   },
 
   /**
@@ -90,7 +97,9 @@ module.exports = {
   validate_otp: {
     method: "put",
     route: [route].join(""),
-    params: ["action*", "txnRef", "otp*"]
+    params: [{
+      "action": "validate"
+    }, "txnRef", "otp*"]
   },
 
   /**
@@ -99,7 +108,9 @@ module.exports = {
   verify: {
     method: "put",
     route: [route].join(""),
-    params: ["action*", "txnRef*"]
+    params: [{
+      "action": "verify"
+    }, "txnRef*"]
   },
 
   /**
@@ -108,6 +119,9 @@ module.exports = {
   account_payment: {
     method: "put",
     route: [route].join(""),
-    params: ["action*", "paymentType", "user*", "account*", "amount*"]
+    params: [{
+      "action": "charge",
+      "paymentType": "account"
+    }, "user*", "account*", "amount*"]
   }
 };
