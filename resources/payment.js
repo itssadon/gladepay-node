@@ -73,5 +73,14 @@ module.exports = {
       "txnRef*",
       "auth_type"
     ]
+  },
+
+  /**
+   * Charge card
+   */
+  charge_token: {
+    method: "put",
+    route: [route].join(""),
+    params: ["action*", "paymentType*", "token*", "user*", "amount*"]
   }
 };
