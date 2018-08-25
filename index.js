@@ -22,7 +22,9 @@ function GladePay(merchantId, merchantKey) {
 }
 
 const resources = {
-    payment: require("./resources/payment")
+    payment: require("./resources/payment"),
+    disburse: require("./resources/disburse"),
+    resource: require("./resources/resource")
 };
 
 GladePay.prototype = {
