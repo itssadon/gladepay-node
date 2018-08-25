@@ -109,7 +109,5 @@ module.exports = {
     method: "put",
     route: [route].join(""),
     params: ["action*", "paymentType", "user*", "account*", "amount*"]
-  },
-
-  /** */
+  }
 };
