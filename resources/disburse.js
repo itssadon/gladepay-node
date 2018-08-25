@@ -1,6 +1,6 @@
 "use strict";
 
-var route = "disburse";
+var route = "/disburse";
 
 module.exports = {
   /**
