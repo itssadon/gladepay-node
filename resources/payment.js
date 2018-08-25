@@ -54,5 +54,24 @@ module.exports = {
       "currency*",
       "installment*"
     ]
+  },
+
+  /**
+   * Charge card
+   */
+  charge_card: {
+    method: "put",
+    route: [route].join(""),
+    params: [
+      "action*",
+      "paymentType*",
+      "user*",
+      "card*",
+      "amount*",
+      "country*",
+      "currency*",
+      "txnRef*",
+      "auth_type"
+    ]
   }
 };
