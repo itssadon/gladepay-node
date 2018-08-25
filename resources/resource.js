@@ -53,7 +53,7 @@ module.exports = {
   },
 
   /**
-   * Get Charge
+   * Get Card Charge
    */
   card_charge: {
     method: "get",
@@ -62,6 +62,20 @@ module.exports = {
         "inquire": "charges"
       },
       "card_no*",
+      "amount*"
+    ]
+  },
+
+  /**
+   * Get Account charge
+   */
+  account_charge: {
+    method: "get",
+    route: [route].join(""),
+    params: [{
+        "inquire": "charges",
+        "type": "account"
+      },
       "amount*"
     ]
   }
