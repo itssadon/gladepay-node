@@ -1,5 +1,5 @@
 /**
- * Gladepay API wrapper
+ * GladePay API wrapper
  * @author Abubakar Hassan < @itssadon >
  */
 
@@ -7,9 +7,9 @@ const request = require('request-promise');
 const endpoint = 'https://api.gladepay.com'; //'https://mc.payit.ng';
 const Events = require("./resources/events");
 
-function Gladepay(merchantId, merchantKey) {
-    if (!(this instanceof Gladepay)) {
-        return new Gladepay(merchantId, merchantKey);
+function GladePay(merchantId, merchantKey) {
+    if (!(this instanceof GladePay)) {
+        return new GladePay(merchantId, merchantKey);
     }
 
     this.endpoint = endpoint;
@@ -22,10 +22,10 @@ function Gladepay(merchantId, merchantKey) {
 }
 
 const resources = {
-    transaction: require("./resources/payment")
+    payment: require("./resources/payment")
 };
 
-Gladepay.prototype = {
+GladePay.prototype = {
     extend: function (func) {
         const me = this;
         return function () {
@@ -117,10 +117,10 @@ Gladepay.prototype = {
             for (var j in resources[i]) {
                 anon.prototype[j] = this.extend(resources[i][j]);
             }
-            Gladepay.prototype[i] = new anon();
+            GladePay.prototype[i] = new anon();
         }
     },
-    FeeHelper: require("./resources/fee_helper")
+    //FeeHelper: require("./resources/fee_helper")
 };
 
-module.exports = Gladepay;
+module.exports = GladePay;
