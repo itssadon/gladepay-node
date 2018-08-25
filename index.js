@@ -1,19 +1,20 @@
 /**
- * Gladepay API wrapper
+ * GladePay API wrapper
  * @author Abubakar Hassan < @itssadon >
  */
 
 const request = require('request-promise');
-const endpoint = 'https://mc.payit.ng';
+const endpoint = 'https://api.gladepay.com'; //'https://mc.payit.ng';
 const Events = require("./resources/events");
 
-function Gladepay(key) {
-    if (!(this instanceof Gladepay)) {
-        return new Gladepay(key);
+function GladePay(merchantId, merchantKey) {
+    if (!(this instanceof GladePay)) {
+        return new GladePay(merchantId, merchantKey);
     }
 
     this.endpoint = endpoint;
-    this.key = key;
+    this.mid = merchantId;
+    this.key = merchantKey;
     this.importResources();
 
     // Setup Events
@@ -21,14 +22,10 @@ function Gladepay(key) {
 }
 
 const resources = {
-    threeds: require("./resources/threeds"),
-    gtbank: require("./resources/gtbank"),
-    merchant: require("./resources/merchant"),
-    transaction: require("./resources/transaction"),
-    change_back: require("./resources/charge_back")
+    payment: require("./resources/payment")
 };
 
-Gladepay.prototype = {
+GladePay.prototype = {
     extend: function (func) {
         const me = this;
         return function () {
@@ -100,7 +97,8 @@ Gladepay.prototype = {
                 json: true,
                 method: method.toUpperCase(),
                 headers: {
-                    Authorization: `Bearer ${me.key}`
+                    mid: `${me.mid}`,
+                    key: `${me.key}`
                 }
             };
 
@@ -119,10 +117,10 @@ Gladepay.prototype = {
             for (var j in resources[i]) {
                 anon.prototype[j] = this.extend(resources[i][j]);
             }
-            Gladepay.prototype[i] = new anon();
+            GladePay.prototype[i] = new anon();
         }
     },
-    FeeHelper: require("./resources/fee_helper")
+    //FeeHelper: require("./resources/fee_helper")
 };
 
-module.exports = Gladepay;
+module.exports = GladePay;
