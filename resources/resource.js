@@ -12,5 +12,16 @@ module.exports = {
     params: [{
       "inquire": "supported_chargable_banks"
     }]
+  },
+
+  /**
+   * Get The List of Banks
+   */
+  banks: {
+    method: "get",
+    route: [route].join(""),
+    params: [{
+      "inquire": "banks"
+    }]
   }
 };
