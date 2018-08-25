@@ -82,5 +82,14 @@ module.exports = {
     method: "put",
     route: [route].join(""),
     params: ["action*", "paymentType*", "token*", "user*", "amount*"]
+  },
+
+  /**
+   * OTP Validation
+   */
+  validate_otp: {
+    method: "put",
+    route: [route].join(""),
+    params: ["action*", "txnRef", "otp*"]
   }
 };
