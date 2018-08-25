@@ -123,5 +123,17 @@ module.exports = {
       "action": "charge",
       "paymentType": "account"
     }, "user*", "account*", "amount*"]
+  },
+
+  /**
+   * Validate account payment
+   */
+  validate_account: {
+    method: "put",
+    route: [route].join(""),
+    params: [{
+      "action": "validate",
+      "validate": "account"
+    }, "txnRef*", "otp*"]
   }
 };
