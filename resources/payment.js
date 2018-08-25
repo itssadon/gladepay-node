@@ -100,5 +100,16 @@ module.exports = {
     method: "put",
     route: [route].join(""),
     params: ["action*", "txnRef*"]
-  }
+  },
+
+  /**
+   * Account payment
+   */
+  account_payment: {
+    method: "put",
+    route: [route].join(""),
+    params: ["action*", "paymentType", "user*", "account*", "amount*"]
+  },
+
+  /** */
 };
