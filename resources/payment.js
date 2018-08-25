@@ -91,5 +91,14 @@ module.exports = {
     method: "put",
     route: [route].join(""),
     params: ["action*", "txnRef", "otp*"]
+  },
+
+  /**
+   * Verify transaction
+   */
+  verify: {
+    method: "put",
+    route: [route].join(""),
+    params: ["action*", "txnRef*"]
   }
 };
