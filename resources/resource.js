@@ -7,7 +7,7 @@ module.exports = {
    * Get Supported Chargeable Banks
    */
   supported_chargable_banks: {
-    method: "get",
+    method: "put",
     route: [route].join(""),
     params: [{
       "inquire": "supported_chargable_banks"
@@ -18,7 +18,7 @@ module.exports = {
    * Get The List of Banks
    */
   banks: {
-    method: "get",
+    method: "put",
     route: [route].join(""),
     params: [{
       "inquire": "banks"
@@ -29,7 +29,7 @@ module.exports = {
    * Verify The Account Name
    */
   account_name: {
-    method: "get",
+    method: "put",
     route: [route].join(""),
     params: [{
         "inquire": "accountname"
@@ -43,7 +43,7 @@ module.exports = {
    * Get Card Details
    */
   card_details: {
-    method: "get",
+    method: "put",
     route: [route].join(""),
     params: [{
         "inquire": "card"
@@ -56,7 +56,7 @@ module.exports = {
    * Get Card Charge
    */
   card_charge: {
-    method: "get",
+    method: "put",
     route: [route].join(""),
     params: [{
         "inquire": "charges"
@@ -70,7 +70,7 @@ module.exports = {
    * Get Account charge
    */
   account_charge: {
-    method: "get",
+    method: "put",
     route: [route].join(""),
     params: [{
         "inquire": "charges",
