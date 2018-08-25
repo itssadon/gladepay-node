@@ -50,5 +50,19 @@ module.exports = {
       },
       "card_no*"
     ]
+  },
+
+  /**
+   * Get Charge
+   */
+  card_charge: {
+    method: "get",
+    route: [route].join(""),
+    params: [{
+        "inquire": "charges"
+      },
+      "card_no*",
+      "amount*"
+    ]
   }
 };
