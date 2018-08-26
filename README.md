@@ -80,7 +80,7 @@ A NodeJS library that simplifies payment with Gladepay APIs
 In lieu of a formal style guide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code.
 
 
-### TODO ✍
+## TODO ✍
 
   * Add continuous integration
   * Add code coverage statistics
