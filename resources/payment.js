@@ -6,7 +6,7 @@ module.exports = {
   /**
    * One-off payment
    */
-  card_payment: {
+  cardPayment: {
     method: "put",
     route: [route].join(""),
     params: [{
@@ -62,7 +62,7 @@ module.exports = {
   /**
    * Charge card
    */
-  charge_card: {
+  chargeCard: {
     method: "put",
     route: [route].join(""),
     params: [{
@@ -82,7 +82,7 @@ module.exports = {
   /**
    * Charge token
    */
-  charge_token: {
+  chargeToken: {
     method: "put",
     route: [route].join(""),
     params: [{
@@ -94,7 +94,7 @@ module.exports = {
   /**
    * OTP Validation
    */
-  validate_otp: {
+  validateOtp: {
     method: "put",
     route: [route].join(""),
     params: [{
@@ -116,7 +116,7 @@ module.exports = {
   /**
    * Account payment
    */
-  account_payment: {
+  accountPayment: {
     method: "put",
     route: [route].join(""),
     params: [{
@@ -128,7 +128,7 @@ module.exports = {
   /**
    * Validate account payment
    */
-  validate_account: {
+  validateAccount: {
     method: "put",
     route: [route].join(""),
     params: [{

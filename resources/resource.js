@@ -6,7 +6,7 @@ module.exports = {
   /**
    * Get Supported Chargeable Banks
    */
-  supported_chargable_banks: {
+  supportedChargableBanks: {
     method: "put",
     route: [route].join(""),
     params: [{
@@ -28,7 +28,7 @@ module.exports = {
   /**
    * Verify The Account Name
    */
-  account_name: {
+  accountName: {
     method: "put",
     route: [route].join(""),
     params: [{
@@ -42,7 +42,7 @@ module.exports = {
   /**
    * Get Card Details
    */
-  card_details: {
+  cardDetails: {
     method: "put",
     route: [route].join(""),
     params: [{
@@ -55,7 +55,7 @@ module.exports = {
   /**
    * Get Card Charge
    */
-  card_charge: {
+  cardCharge: {
     method: "put",
     route: [route].join(""),
     params: [{
@@ -69,7 +69,7 @@ module.exports = {
   /**
    * Get Account charge
    */
-  account_charge: {
+  accountCharge: {
     method: "put",
     route: [route].join(""),
     params: [{
