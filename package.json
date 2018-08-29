@@ -4,7 +4,8 @@
   "description": "A NodeJS library that simplifies payment with Gladepay APIs",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "cover": "istanbul cover mocha -- -R spec test/*"
   },
   "engines": {
     "node": ">=4.2.4"
