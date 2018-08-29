@@ -1,4 +1,4 @@
-Gladepay NodeJS 
+Gladepay NodeJS [![Build Status](https://travis-ci.org/itssadon/gladepay-node.svg?branch=master)](https://travis-ci.org/itssadon/gladepay-node) [![Coverage Status](https://coveralls.io/repos/github/itssadon/gladepay-node/badge.svg?branch=master)](https://coveralls.io/github/itssadon/gladepay-node?branch=master)
 =========
 
 💳 📦 💰 
