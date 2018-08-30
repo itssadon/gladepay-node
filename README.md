@@ -1,8 +1,6 @@
-Gladepay NodeJS 
+# Gladepay NodeJS 
 
 [![Build Status][ico-travis]][link-travis] [![Coverage Status][ico-coverage]][link-coverage] [![Software License][ico-license]](LICENSE.md) [![npm][ico-npm]][link-npm] [![npm][ico-downloads]][link-downloads]
-<!-- [![Code Intelligence Status][ico-code-intelligence]][link-code-intelligence] -->
-
 
 💳 📦 💰 A NodeJS library that simplifies payment with Gladepay APIs
 
