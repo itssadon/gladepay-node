@@ -94,9 +94,9 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [ico-travis]: https://travis-ci.org/itssadon/gladepay-node.svg?branch=master
 [ico-coverage]: https://coveralls.io/repos/github/itssadon/gladepay-node/badge.svg?branch=master
-[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-npm]: https://img.shields.io/npm/v/:package.svg
-[ico-downloads]: https://img.shields.io/npm/dt/:package.svg
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg
+[ico-npm]: https://img.shields.io/npm/v/gladepay-node.svg
+[ico-downloads]: https://img.shields.io/npm/dt/gladepay-node.svg
 
 [link-travis]: https://travis-ci.org/itssadon/gladepay-node
 [link-coverage]: https://coveralls.io/github/itssadon/gladepay-node?branch=master
