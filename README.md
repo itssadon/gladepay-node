@@ -1,13 +1,9 @@
 Gladepay NodeJS 
 
-=========
-[![Build Status](https://travis-ci.org/itssadon/gladepay-node.svg?branch=master)](https://travis-ci.org/itssadon/gladepay-node) [![Coverage Status](https://coveralls.io/repos/github/itssadon/gladepay-node/badge.svg?branch=master)](https://coveralls.io/github/itssadon/gladepay-node?branch=master) [![Software License][ico-license]](LICENSE.md) [![Total Downloads][ico-downloads]][link-downloads]
+[![Build Status](https://travis-ci.org/itssadon/gladepay-node.svg?branch=master)](https://travis-ci.org/itssadon/gladepay-node) [![Coverage Status](https://coveralls.io/repos/github/itssadon/gladepay-node/badge.svg?branch=master)](https://coveralls.io/github/itssadon/gladepay-node?branch=master) [![Software License][ico-license]](LICENSE.md) [![Total Downloads][ico-downloads]](https://www.npmjs.com/package/gladepay-node)
 <!-- [![Code Intelligence Status][ico-code-intelligence]][link-code-intelligence] -->
-=========
 
-💳 📦 💰 
-
-A NodeJS library that simplifies payment with Gladepay APIs
+💳 📦 💰 A NodeJS library that simplifies payment with Gladepay APIs
 
 ## Installation
 
