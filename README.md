@@ -1,6 +1,7 @@
 Gladepay NodeJS 
 
-[![Build Status](https://travis-ci.org/itssadon/gladepay-node.svg?branch=master)](https://travis-ci.org/itssadon/gladepay-node) [![Coverage Status](https://coveralls.io/repos/github/itssadon/gladepay-node/badge.svg?branch=master)](https://coveralls.io/github/itssadon/gladepay-node?branch=master) [![Software License][ico-license]](LICENSE.md) [![Total Downloads][ico-downloads]](https://www.npmjs.com/package/gladepay-node)
+[![Build Status][ico-travis]][link-travis] [![Coverage Status][ico-coverage]][link-coverage] [![Software License][ico-license]](LICENSE.md) 
+[![npm][ico-npm]][link-npm] [![npm][ico-downloads]][link-download]
 <!-- [![Code Intelligence Status][ico-code-intelligence]][link-code-intelligence] -->
 
 💳 📦 💰 A NodeJS library that simplifies payment with Gladepay APIs
@@ -79,9 +80,28 @@ Gladepay NodeJS
 
 In lieu of a formal style guide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code.
 
+Kindly [follow me on twitter](https://twitter.com/itssadon)!
 
 ## TODO ✍
 
   * Add continuous integration
   * Add code coverage statistics
   * Add some sweet badges
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+[ico-travis]: https://travis-ci.org/itssadon/gladepay-node.svg?branch=master
+[ico-coverage]: https://coveralls.io/repos/github/itssadon/gladepay-node/badge.svg?branch=master
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-npm]: https://img.shields.io/npm/v/:package.svg
+[ico-downloads]: https://img.shields.io/npm/dt/:package.svg
+
+[link-travis]: https://travis-ci.org/itssadon/gladepay-node
+[link-coverage]: https://coveralls.io/github/itssadon/gladepay-node?branch=master
+[link-npm]: https://www.npmjs.com/package/gladepay-node
+[link-downloads]: https://www.npmjs.com/package/gladepay-node
+
+[link-author]: https://github.com/itssaon
+[link-contributors]: ../../contributors
