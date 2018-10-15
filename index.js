@@ -47,7 +47,9 @@ GladePay.prototype = {
             if (func.params) {
                 // check args
                 func.params.filter(param => {
-                    if (!param.includes("*")) return;
+                    if (typeof param === "string") {
+                        if (!param.includes("*")) return;
+                    }
 
                     param = param.replace("*", "");
                     if (!(param in data)) {
