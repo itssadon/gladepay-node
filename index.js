@@ -49,11 +49,11 @@ GladePay.prototype = {
                 func.params.filter(param => {
                     if (typeof param === "string") {
                         if (!param.includes("*")) return;
-                    }
 
-                    param = param.replace("*", "");
-                    if (!(param in data)) {
-                        throw new Error(`Parameter '${param}' is required`);
+                        param = param.replace("*", "");
+                        if (!(param in data)) {
+                            throw new Error(`Parameter '${param}' is required`);
+                        }
                     }
 
                     return;
