@@ -44,17 +44,31 @@ GladePay.prototype = {
             var endpoint = me.endpoint + func.route,
                 qs = {};
 
+            // Highest priority should go to path variables parsing and validation
+            var argsInEndpoint = endpoint.match(/{[^}]+}/g);
+            if (argsInEndpoint) {
+                argsInEndpoint.map(arg => {
+                    arg = arg.replace(/\W/g, "");
+                    if (!(arg in data)) {
+                        throw new Error(`Argument '${arg}' is required`);
+                    } else {
+                        endpoint = endpoint.replace(`{${arg}}`, data[`${arg}`]);
+                        // to avoid error, remove the path arg from body | qs params
+                        // by deleting it from the data object before body | qs params are set
+                        delete data[arg];
+                    }
+                });
+            }
+
             // incase of endpoints with no params requirement
             if (func.params) {
                 // check args
                 func.params.filter(param => {
-                    if (typeof param === "string") {
-                        if (!param.includes("*")) return;
+                    if (!param.includes("*")) return;
 
-                        param = param.replace("*", "");
-                        if (!(param in data)) {
-                            throw new Error(`Parameter '${param}' is required`);
-                        }
+                    param = param.replace("*", "");
+                    if (!(param in data)) {
+                        throw new Error(`Parameter '${param}' is required`);
                     }
 
                     return;
@@ -84,27 +98,15 @@ GladePay.prototype = {
                 });
             }
 
-            var argsInEndpoint = endpoint.match(/{[^}]+}/g);
-            if (argsInEndpoint) {
-                argsInEndpoint.map(arg => {
-                    arg = arg.replace(/\W/g, "");
-                    if (!(arg in data)) {
-                        throw new Error(`Argument '${arg}' is required`);
-                    } else {
-                        endpoint = endpoint.replace(`{${arg}}`, data[`${arg}`]);
-                    }
-                });
-            }
-
             // Create request
             const options = {
                 url: endpoint,
                 json: true,
-                method: method.toUpperCase(),
+                method: method.toUpperCase() || 'PUT',
                 headers: {
-                    'Content-type': 'application/json',
-                    'mid': `${me.mid}`,
-                    'key': `${me.key}`
+                    'content-type': 'application/json',
+                    mid: `${me.mid}`,
+                    key: `${me.key}`
                 }
             };
 
