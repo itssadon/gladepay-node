@@ -19,7 +19,8 @@
 
   ```js
   // Require the library
-  const gladepay = require('gladepay-node')('MERCHANT-ID')('MERCHANT-KEY');
+  // mode defaults to false for test mode and could be `boolean` true or false
+  const gladepay = require('gladepay-node')('MERCHANT-ID', 'MERCHANT-KEY', mode);
   ```
 
 ### Making calls

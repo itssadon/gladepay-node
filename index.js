@@ -4,15 +4,16 @@
  */
 
 const request = require('request-promise');
-const endpoint = 'https://api.gladepay.com'; //'https://mc.payit.ng';
+const endpoint = 'https://api.gladepay.com';
+const demoEndpoint = 'https://demo.api.gladepay.com';
 const Events = require("./resources/events");
 
-function GladePay(merchantId, merchantKey) {
+function GladePay(merchantId, merchantKey, mode=false) {
     if (!(this instanceof GladePay)) {
         return new GladePay(merchantId, merchantKey);
     }
 
-    this.endpoint = endpoint;
+    this.endpoint = (mode) ? endpoint : demoEndpoint;
     this.mid = merchantId;
     this.key = merchantKey;
     this.importResources();
