@@ -8,7 +8,7 @@ const endpoint = 'https://api.gladepay.com';
 const demoEndpoint = 'https://demo.api.gladepay.com';
 const Events = require("./resources/events");
 
-function GladePay(merchantId, merchantKey, mode=false) {
+function GladePay(merchantId, merchantKey, mode = false) {
     if (!(this instanceof GladePay)) {
         return new GladePay(merchantId, merchantKey);
     }
@@ -17,7 +17,7 @@ function GladePay(merchantId, merchantKey, mode=false) {
     this.mid = merchantId;
     this.key = merchantKey;
     this.importResources();
-    console.info('MerchantId: '+ this.mid + '\n MerchantKey: '+ this.key);
+    console.info('MerchantId: ' + this.mid + '\n MerchantKey: ' + this.key);
 
     // Setup Events
     this.Events = new Events(this.key);
@@ -65,13 +65,17 @@ GladePay.prototype = {
             if (func.params) {
                 // check args
                 func.params.filter(param => {
-                    if (!param.includes("*")) return;
+                    if (typeof param === 'string') {
+                        if (!param.includes("*")) return;
 
-                    param = param.replace("*", "");
-                    if (!(param in data)) {
-                        throw new Error(`Parameter '${param}' is required`);
+                        param = param.replace("*", "");
+                        if (!(param in data)) {
+                            throw new Error(`Parameter '${param}' is required`);
+                        }
+
+                        return;
                     }
-
+                    
                     return;
                 });
             }
