@@ -17,7 +17,6 @@ function GladePay(merchantId, merchantKey, mode = false) {
     this.mid = merchantId;
     this.key = merchantKey;
     this.importResources();
-    console.info('MerchantId: ' + this.mid + '\n MerchantKey: ' + this.key);
 
     // Setup Events
     this.Events = new Events(this.key);
@@ -75,7 +74,7 @@ GladePay.prototype = {
 
                         return;
                     }
-                    
+
                     return;
                 });
             }
