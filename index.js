@@ -16,7 +16,7 @@ function GladePay(merchantId, merchantKey) {
     this.mid = merchantId;
     this.key = merchantKey;
     this.importResources();
-
+    console.info('MerchantId: '+ this.mid + '\n MerchantKey: '+ this.key);
     // Setup Events
     this.Events = new Events(this.key);
 }
@@ -101,8 +101,9 @@ GladePay.prototype = {
                 json: true,
                 method: method.toUpperCase(),
                 headers: {
-                    mid: `${me.mid}`,
-                    key: `${me.key}`
+                    'Content-type': 'application/json',
+                    'mid': `${me.mid}`,
+                    'key': `${me.key}`
                 }
             };
 
