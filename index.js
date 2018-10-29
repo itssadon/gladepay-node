@@ -5,14 +5,15 @@
 
 const request = require('request-promise');
 const endpoint = 'https://api.gladepay.com';
+const demoEndpoint = 'https://demo.api.gladepay.com';
 const Events = require("./resources/events");
 
-function GladePay(merchantId, merchantKey) {
+function GladePay(merchantId, merchantKey, mode = false) {
     if (!(this instanceof GladePay)) {
         return new GladePay(merchantId, merchantKey);
     }
 
-    this.endpoint = endpoint;
+    this.endpoint = (mode) ? endpoint : demoEndpoint;
     this.mid = merchantId;
     this.key = merchantKey;
     this.importResources();
@@ -44,14 +45,35 @@ GladePay.prototype = {
                 qs = {};
 
             // Incase of endpoints with no params requirement
+            // Highest priority should go to path variables parsing and validation
+            var argsInEndpoint = endpoint.match(/{[^}]+}/g);
+            if (argsInEndpoint) {
+                argsInEndpoint.map(arg => {
+                    arg = arg.replace(/\W/g, "");
+                    if (!(arg in data)) {
+                        throw new Error(`Argument '${arg}' is required`);
+                    } else {
+                        endpoint = endpoint.replace(`{${arg}}`, data[`${arg}`]);
+                        // to avoid error, remove the path arg from body | qs params
+                        // by deleting it from the data object before body | qs params are set
+                        delete data[arg];
+                    }
+                });
+            }
+
+            // incase of endpoints with no params requirement
             if (func.params) {
                 // Check args
                 func.params.filter(param => {
-                    if (!param.includes("*")) return;
+                    if (typeof param === 'string') {
+                        if (!param.includes("*")) return;
 
-                    param = param.replace("*", "");
-                    if (!(param in data)) {
-                        throw new Error(`Parameter '${param}' is required`);
+                        param = param.replace("*", "");
+                        if (!(param in data)) {
+                            throw new Error(`Parameter '${param}' is required`);
+                        }
+
+                        return;
                     }
 
                     return;
@@ -81,24 +103,13 @@ GladePay.prototype = {
                 });
             }
 
-            var argsInEndpoint = endpoint.match(/{[^}]+}/g);
-            if (argsInEndpoint) {
-                argsInEndpoint.map(arg => {
-                    arg = arg.replace(/\W/g, "");
-                    if (!(arg in data)) {
-                        throw new Error(`Argument '${arg}' is required`);
-                    } else {
-                        endpoint = endpoint.replace(`{${arg}}`, data[`${arg}`]);
-                    }
-                });
-            }
-
             // Create request
             const options = {
                 url: endpoint,
                 json: true,
-                method: method.toUpperCase(),
+                method: method.toUpperCase() || 'PUT',
                 headers: {
+                    'Content-Type': 'application/json',
                     mid: `${me.mid}`,
                     key: `${me.key}`
                 }
