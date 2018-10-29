@@ -9,9 +9,9 @@ module.exports = {
   supportedChargableBanks: {
     method: "put",
     route: [route, ""].join(""),
-    params: [{
+    params: {
       "inquire": "supported_chargable_banks"
-    }]
+    }
   },
 
   /**
