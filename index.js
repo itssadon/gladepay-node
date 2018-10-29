@@ -116,7 +116,7 @@ GladePay.prototype = {
             };
 
             if (method == "post" || method == "put") {
-                options.body = data;
+                options.data = data;
             } else {
                 options.qs = qs;
             }
