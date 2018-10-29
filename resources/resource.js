@@ -8,7 +8,7 @@ module.exports = {
    */
   supportedChargableBanks: {
     method: "put",
-    route: [route].join(""),
+    route: [route, ""].join(""),
     params: [{
       "inquire": "supported_chargable_banks"
     }]
@@ -19,7 +19,7 @@ module.exports = {
    */
   banks: {
     method: "put",
-    route: [route].join(""),
+    route: [route, ""].join(""),
     params: [{
       "inquire": "banks"
     }]
@@ -30,7 +30,7 @@ module.exports = {
    */
   accountName: {
     method: "put",
-    route: [route].join(""),
+    route: [route, ""].join(""),
     params: [{
         "inquire": "accountname"
       },
@@ -44,7 +44,7 @@ module.exports = {
    */
   cardDetails: {
     method: "put",
-    route: [route].join(""),
+    route: [route, ""].join(""),
     params: [{
         "inquire": "card"
       },
@@ -57,7 +57,7 @@ module.exports = {
    */
   cardCharge: {
     method: "put",
-    route: [route].join(""),
+    route: [route, ""].join(""),
     params: [{
         "inquire": "charges"
       },
@@ -71,7 +71,7 @@ module.exports = {
    */
   accountCharge: {
     method: "put",
-    route: [route].join(""),
+    route: [route, ""].join(""),
     params: [{
         "inquire": "charges",
         "type": "account"
