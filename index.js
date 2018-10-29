@@ -4,7 +4,7 @@
  */
 
 const request = require('request-promise');
-const endpoint = 'https://api.gladepay.com'; //'https://mc.payit.ng';
+const endpoint = 'https://api.gladepay.com';
 const Events = require("./resources/events");
 
 function GladePay(merchantId, merchantKey) {
@@ -33,7 +33,7 @@ GladePay.prototype = {
         return function () {
             const data = arguments[0] || {};
 
-            // check method
+            // Check method
             const method = ["post", "get", "put"].includes(func.method) ?
                 func.method :
                 (function () {
@@ -43,9 +43,9 @@ GladePay.prototype = {
             var endpoint = me.endpoint + func.route,
                 qs = {};
 
-            // incase of endpoints with no params requirement
+            // Incase of endpoints with no params requirement
             if (func.params) {
-                // check args
+                // Check args
                 func.params.filter(param => {
                     if (!param.includes("*")) return;
 
@@ -58,11 +58,11 @@ GladePay.prototype = {
                 });
             }
 
-            // incase of endpoints with no args requirement
+            // Incase of endpoints with no args requirement
             if (func.args) {
-                // check args
+                // Check args
                 func.args.filter(a => {
-                    // remove unwanted properties
+                    // Remove unwanted properties
                     if (!a.includes("*")) {
                         if (a in data) {
                             qs[`${a}`] = data[`${a}`];
@@ -121,8 +121,7 @@ GladePay.prototype = {
             }
             GladePay.prototype[i] = new anon();
         }
-    },
-    //FeeHelper: require("./resources/fee_helper")
+    }
 };
 
 module.exports = GladePay;
