@@ -1,6 +1,6 @@
 {
   "name": "gladepay-node",
-  "version": "0.1.12",
+  "version": "0.2.0",
   "description": "A NodeJS library that simplifies payment with Gladepay APIs",
   "main": "index.js",
   "scripts": {
