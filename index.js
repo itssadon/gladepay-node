@@ -61,7 +61,7 @@ GladePay.prototype = {
                 });
             }
 
-            // incase of endpoints with no params requirement
+            // Incase of endpoints with no params requirement
             if (func.params) {
                 // Check args
                 func.params.filter(param => {
