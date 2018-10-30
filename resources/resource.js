@@ -45,7 +45,10 @@ module.exports = {
   cardDetails: {
     method: "put",
     route: [route, ""].join(""),
-    params: ["inquire*", "card_no*"]
+    params: ["card_no*"],
+    data: {
+      "inquire": "card"
+    }
   },
 
   /**
@@ -54,7 +57,10 @@ module.exports = {
   cardCharge: {
     method: "put",
     route: [route, ""].join(""),
-    params: ["inquire*", "card_no*", "amount*"]
+    params: ["card_no*", "amount*"],
+    data: {
+      "inquire": "charges"
+    }
   },
 
   /**
@@ -62,12 +68,11 @@ module.exports = {
    */
   accountCharge: {
     method: "put",
-    route: [route, ""].join(""),
-    params: [{
-        "inquire": "charges",
-        "type": "account"
-      },
-      "amount*"
-    ]
+    route: route,
+    params: ["amount*"],
+    data: {
+      "inquire": "charges",
+      "type": "account"
+    }
   }
 };

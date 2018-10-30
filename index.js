@@ -17,8 +17,6 @@ function GladePay(merchantId, merchantKey, mode = false) {
     this.mid = merchantId;
     this.key = merchantKey;
     this.importResources();
-
-    // Setup Events
     this.Events = new Events(this.key);
 }
 
@@ -34,7 +32,6 @@ GladePay.prototype = {
         return function () {
             const data = arguments[0] || {};
 
-            // Check method
             const method = ["post", "get", "put"].includes(func.method) ?
                 func.method :
                 (function () {
@@ -44,7 +41,6 @@ GladePay.prototype = {
             var endpoint = me.endpoint + func.route,
                 qs = {};
 
-            // Highest priority should go to path variables parsing and validation
             var argsInEndpoint = endpoint.match(/{[^}]+}/g);
             if (argsInEndpoint) {
                 argsInEndpoint.map(arg => {
@@ -53,16 +49,12 @@ GladePay.prototype = {
                         throw new Error(`Argument '${arg}' is required`);
                     } else {
                         endpoint = endpoint.replace(`{${arg}}`, data[`${arg}`]);
-                        // to avoid error, remove the path arg from body | qs params
-                        // by deleting it from the data object before body | qs params are set
                         delete data[arg];
                     }
                 });
             }
 
-            // Incase of endpoints with no params requirement
             if (func.params) {
-                // Check args
                 func.params.filter(param => {
                     if (typeof param === 'string') {
                         if (!param.includes("*")) return;
@@ -79,11 +71,8 @@ GladePay.prototype = {
                 });
             }
 
-            // Incase of endpoints with no args requirement
             if (func.args) {
-                // Check args
                 func.args.filter(a => {
-                    // Remove unwanted properties
                     if (!a.includes("*")) {
                         if (a in data) {
                             qs[`${a}`] = data[`${a}`];
@@ -102,7 +91,6 @@ GladePay.prototype = {
                 });
             }
 
-            // Create request
             const options = {
                 url: endpoint,
                 json: true,
