@@ -115,6 +115,7 @@ GladePay.prototype = {
                 }
             };
 
+            console.log("This is the data:");
             console.log(data);
 
             if (method == "post" || method == "put") {
