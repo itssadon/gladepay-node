@@ -114,10 +114,8 @@ GladePay.prototype = {
                 }
             };
 
-            var requestData = data || func.data;
-
             if (method == "post" || method == "put") {
-                options.body = requestData;
+                options.body = func.data || data;
             } else {
                 options.qs = qs;
             }
