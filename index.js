@@ -103,7 +103,7 @@ GladePay.prototype = {
             }
 
             // Create request
-            const options = {
+            let options = {
                 url: endpoint,
                 json: true,
                 method: method.toUpperCase(),
@@ -122,9 +122,7 @@ GladePay.prototype = {
                 options.qs = qs;
             }
 
-            console.info('**********************');
-            console.info('These are the request options');
-            console.info(options);
+            console.info(requestData);
 
             return request(options);
         };
