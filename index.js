@@ -44,7 +44,6 @@ GladePay.prototype = {
             var endpoint = me.endpoint + func.route,
                 qs = {};
 
-            // Incase of endpoints with no params requirement
             // Highest priority should go to path variables parsing and validation
             var argsInEndpoint = endpoint.match(/{[^}]+}/g);
             if (argsInEndpoint) {
@@ -105,7 +104,7 @@ GladePay.prototype = {
 
             console.info("============================");
             console.info("This is the data:");
-            console.info(data);
+            console.info(func.params);
             console.info("============================");
 
             // Create request
@@ -125,6 +124,11 @@ GladePay.prototype = {
             } else {
                 options.qs = qs;
             }
+
+            console.info('**********************');
+            console.info('These are the request options');
+            console.info(options);
+            console.info('**********************');
 
             return request(options);
         };
