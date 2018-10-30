@@ -114,7 +114,7 @@ GladePay.prototype = {
                 }
             };
 
-            var requestData = (data !== '' && data !== null) ? data : func.data;
+            var requestData = (data) ? data : func.data;
 
             if (method == "post" || method == "put") {
                 options.body = requestData;
@@ -122,7 +122,7 @@ GladePay.prototype = {
                 options.qs = qs;
             }
 
-            console.info(requestData);
+            console.info(options);
 
             return request(options);
         };
