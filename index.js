@@ -101,10 +101,6 @@ GladePay.prototype = {
                     return;
                 });
             }
-            
-            console.info('**********************');
-            console.info("This is the data:");
-            console.info(func.data);
 
             // Create request
             const options = {
@@ -118,12 +114,10 @@ GladePay.prototype = {
                 }
             };
 
+            var requestData = (data !== '' && data !== null) ? data : func.data;
+
             if (method == "post" || method == "put") {
-                if (data != '') {
-                    options.body = data;
-                } else {
-                    options.body = func.data;
-                }
+                options.body = requestData;
             } else {
                 options.qs = qs;
             }
