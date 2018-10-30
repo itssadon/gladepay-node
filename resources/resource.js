@@ -1,6 +1,6 @@
 "use strict";
 
-var route = "/resource";
+var route = "/resources";
 
 module.exports = {
   /**
@@ -8,10 +8,11 @@ module.exports = {
    */
   supportedChargableBanks: {
     method: "put",
-    route: [route].join(""),
-    params: [{
+    route: route,
+    params: ["inquire"],
+    data: {
       "inquire": "supported_chargable_banks"
-    }]
+    }
   },
 
   /**
@@ -19,10 +20,11 @@ module.exports = {
    */
   banks: {
     method: "put",
-    route: [route].join(""),
-    params: [{
+    route: [route, ""].join(""),
+    params: ["inquire"],
+    data: {
       "inquire": "banks"
-    }]
+    }
   },
 
   /**
@@ -30,13 +32,11 @@ module.exports = {
    */
   accountName: {
     method: "put",
-    route: [route].join(""),
-    params: [{
-        "inquire": "accountname"
-      },
-      "accountnumber*",
-      "bankcode*"
-    ]
+    route: [route, ""].join(""),
+    params: ["accountnumber*", "bankcode*"],
+    data: {
+      "inquire": "accountname"
+    }
   },
 
   /**
@@ -44,12 +44,11 @@ module.exports = {
    */
   cardDetails: {
     method: "put",
-    route: [route].join(""),
-    params: [{
-        "inquire": "card"
-      },
-      "card_no*"
-    ]
+    route: [route, ""].join(""),
+    params: ["card_no*"],
+    data: {
+      "inquire": "card"
+    }
   },
 
   /**
@@ -57,13 +56,11 @@ module.exports = {
    */
   cardCharge: {
     method: "put",
-    route: [route].join(""),
-    params: [{
-        "inquire": "charges"
-      },
-      "card_no*",
-      "amount*"
-    ]
+    route: [route, ""].join(""),
+    params: ["card_no*", "amount*"],
+    data: {
+      "inquire": "charges"
+    }
   },
 
   /**
@@ -71,12 +68,11 @@ module.exports = {
    */
   accountCharge: {
     method: "put",
-    route: [route].join(""),
-    params: [{
-        "inquire": "charges",
-        "type": "account"
-      },
-      "amount*"
-    ]
+    route: route,
+    params: ["amount*"],
+    data: {
+      "inquire": "charges",
+      "type": "account"
+    }
   }
 };

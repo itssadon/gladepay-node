@@ -8,7 +8,7 @@ module.exports = {
    */
   transfer: {
     method: "put",
-    route: [route].join(""),
+    route: route,
     params: ["action*", "amount*", "bankcode*", "accountnumber*", "sender_name*", "narration"]
   }
 };

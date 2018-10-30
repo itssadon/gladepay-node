@@ -8,17 +8,18 @@ module.exports = {
    */
   cardPayment: {
     method: "put",
-    route: [route].join(""),
-    params: [{
-        "action": "initiate",
-        "paymentType": "card"
-      },
+    route: route,
+    params: [
       "user*",
       "card*",
       "amount*",
       "country*",
       "currency*"
-    ]
+    ],
+    data: {
+      "action": "initiate",
+      "paymentType": "card"
+    }
   },
 
   /**
@@ -26,18 +27,19 @@ module.exports = {
    */
   recurrent: {
     method: "put",
-    route: [route].join(""),
-    params: [{
-        "action": "initiate",
-        "paymentType": "card"
-      },
+    route: route,
+    params: [
       "user*",
       "card*",
       "amount*",
       "country*",
       "currency*",
       "recurrent*"
-    ]
+    ],
+    data: {
+      "action": "initiate",
+      "paymentType": "card"
+    }
   },
 
   /**
@@ -45,18 +47,19 @@ module.exports = {
    */
   installment: {
     method: "put",
-    route: [route].join(""),
-    params: [{
-        "action": "initiate",
-        "paymentType": "card"
-      },
+    route: route,
+    params: [
       "user*",
       "card*",
       "amount*",
       "country*",
       "currency*",
       "installment*"
-    ]
+    ],
+    data: {
+      "action": "initiate",
+      "paymentType": "card"
+    }
   },
 
   /**
@@ -64,11 +67,8 @@ module.exports = {
    */
   chargeCard: {
     method: "put",
-    route: [route].join(""),
-    params: [{
-        "action": "charge",
-        "paymentType": "card"
-      },
+    route: route,
+    params: [
       "user*",
       "card*",
       "amount*",
@@ -76,7 +76,11 @@ module.exports = {
       "currency*",
       "txnRef*",
       "auth_type"
-    ]
+    ],
+    data: {
+      "action": "charge",
+      "paymentType": "card"
+    }
   },
 
   /**
@@ -84,11 +88,12 @@ module.exports = {
    */
   chargeToken: {
     method: "put",
-    route: [route].join(""),
-    params: [{
+    route: route,
+    params: ["token*", "user*", "amount*"],
+    data: {
       "action": "charge",
       "paymentType": "token"
-    }, "token*", "user*", "amount*"]
+    }
   },
 
   /**
@@ -96,7 +101,7 @@ module.exports = {
    */
   validateOtp: {
     method: "put",
-    route: [route].join(""),
+    route: route,
     params: [{
       "action": "validate"
     }, "txnRef", "otp*"]
@@ -107,10 +112,11 @@ module.exports = {
    */
   verify: {
     method: "put",
-    route: [route].join(""),
-    params: [{
+    route: route,
+    params: ["txnRef*"],
+    data: {
       "action": "verify"
-    }, "txnRef*"]
+    }
   },
 
   /**
@@ -118,11 +124,12 @@ module.exports = {
    */
   accountPayment: {
     method: "put",
-    route: [route].join(""),
-    params: [{
+    route: route,
+    params: ["user*", "account*", "amount*"],
+    data: {
       "action": "charge",
       "paymentType": "account"
-    }, "user*", "account*", "amount*"]
+    }
   },
 
   /**
@@ -130,10 +137,11 @@ module.exports = {
    */
   validateAccount: {
     method: "put",
-    route: [route].join(""),
-    params: [{
+    route: route,
+    params: ["txnRef*", "otp*"],
+    data: {
       "action": "validate",
       "validate": "account"
-    }, "txnRef*", "otp*"]
+    }
   }
 };

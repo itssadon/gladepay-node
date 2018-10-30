@@ -4,20 +4,19 @@
  */
 
 const request = require('request-promise');
-const endpoint = 'https://api.gladepay.com'; //'https://mc.payit.ng';
+const endpoint = 'https://api.gladepay.com';
+const demoEndpoint = 'https://demo.api.gladepay.com';
 const Events = require("./resources/events");
 
-function GladePay(merchantId, merchantKey) {
+function GladePay(merchantId, merchantKey, mode = false) {
     if (!(this instanceof GladePay)) {
         return new GladePay(merchantId, merchantKey);
     }
 
-    this.endpoint = endpoint;
+    this.endpoint = (mode) ? endpoint : demoEndpoint;
     this.mid = merchantId;
     this.key = merchantKey;
     this.importResources();
-
-    // Setup Events
     this.Events = new Events(this.key);
 }
 
@@ -33,7 +32,6 @@ GladePay.prototype = {
         return function () {
             const data = arguments[0] || {};
 
-            // check method
             const method = ["post", "get", "put"].includes(func.method) ?
                 func.method :
                 (function () {
@@ -43,26 +41,38 @@ GladePay.prototype = {
             var endpoint = me.endpoint + func.route,
                 qs = {};
 
-            // incase of endpoints with no params requirement
-            if (func.params) {
-                // check args
-                func.params.filter(param => {
-                    if (!param.includes("*")) return;
+            var argsInEndpoint = endpoint.match(/{[^}]+}/g);
+            if (argsInEndpoint) {
+                argsInEndpoint.map(arg => {
+                    arg = arg.replace(/\W/g, "");
+                    if (!(arg in data)) {
+                        throw new Error(`Argument '${arg}' is required`);
+                    } else {
+                        endpoint = endpoint.replace(`{${arg}}`, data[`${arg}`]);
+                        delete data[arg];
+                    }
+                });
+            }
 
-                    param = param.replace("*", "");
-                    if (!(param in data)) {
-                        throw new Error(`Parameter '${param}' is required`);
+            if (func.params) {
+                func.params.filter(param => {
+                    if (typeof param === 'string') {
+                        if (!param.includes("*")) return;
+
+                        param = param.replace("*", "");
+                        if (!(param in data)) {
+                            throw new Error(`Parameter '${param}' is required`);
+                        }
+
+                        return;
                     }
 
                     return;
                 });
             }
 
-            // incase of endpoints with no args requirement
             if (func.args) {
-                // check args
                 func.args.filter(a => {
-                    // remove unwanted properties
                     if (!a.includes("*")) {
                         if (a in data) {
                             qs[`${a}`] = data[`${a}`];
@@ -81,31 +91,20 @@ GladePay.prototype = {
                 });
             }
 
-            var argsInEndpoint = endpoint.match(/{[^}]+}/g);
-            if (argsInEndpoint) {
-                argsInEndpoint.map(arg => {
-                    arg = arg.replace(/\W/g, "");
-                    if (!(arg in data)) {
-                        throw new Error(`Argument '${arg}' is required`);
-                    } else {
-                        endpoint = endpoint.replace(`{${arg}}`, data[`${arg}`]);
-                    }
-                });
-            }
-
-            // Create request
             const options = {
                 url: endpoint,
                 json: true,
                 method: method.toUpperCase(),
                 headers: {
-                    mid: `${me.mid}`,
-                    key: `${me.key}`
+                    'Content-Type': 'application/json',
+                    key: `${me.key}`,
+                    mid: `${me.mid}`
                 }
             };
 
             if (method == "post" || method == "put") {
-                options.body = data;
+                const reqData = Object.assign(func.data, data);
+                options.body = reqData;
             } else {
                 options.qs = qs;
             }
@@ -121,8 +120,7 @@ GladePay.prototype = {
             }
             GladePay.prototype[i] = new anon();
         }
-    },
-    //FeeHelper: require("./resources/fee_helper")
+    }
 };
 
 module.exports = GladePay;
