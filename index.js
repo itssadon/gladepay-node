@@ -3,7 +3,7 @@
  * @author Abubakar Hassan < @itssadon >
  */
 
-const request = require('request');
+const request = require('request-promise');
 const endpoint = 'https://api.gladepay.com';
 const demoEndpoint = 'https://demo.api.gladepay.com';
 const Events = require("./resources/events");
@@ -101,17 +101,16 @@ GladePay.prototype = {
                     return;
                 });
             }
-
-            console.info("============================");
+            
+            console.info('**********************');
             console.info("This is the data:");
-            console.info(func.params);
-            console.info("============================");
+            console.info(func.data);
 
             // Create request
             const options = {
                 url: endpoint,
                 json: true,
-                method: method.toUpperCase() || 'PUT',
+                method: method.toUpperCase(),
                 headers: {
                     'Content-Type': 'application/json',
                     key: `${me.key}`,
@@ -120,7 +119,7 @@ GladePay.prototype = {
             };
 
             if (method == "post" || method == "put") {
-                options.body = data;
+                options.body = data || func.data;
             } else {
                 options.qs = qs;
             }
@@ -128,7 +127,6 @@ GladePay.prototype = {
             console.info('**********************');
             console.info('These are the request options');
             console.info(options);
-            console.info('**********************');
 
             return request(options);
         };
