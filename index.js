@@ -103,7 +103,7 @@ GladePay.prototype = {
             }
 
             // Create request
-            let options = {
+            const options = {
                 url: endpoint,
                 json: true,
                 method: method.toUpperCase(),
@@ -115,12 +115,11 @@ GladePay.prototype = {
             };
 
             if (method == "post" || method == "put") {
-                options.body = func.data || data;
+                const reqData = Object.assign(func.data, data);
+                options.body = reqData;
             } else {
                 options.qs = qs;
             }
-
-            console.info(options);
 
             return request(options);
         };

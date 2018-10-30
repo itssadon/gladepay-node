@@ -9,7 +9,7 @@ module.exports = {
   supportedChargableBanks: {
     method: "put",
     route: route,
-    params: ["inquire*"],
+    params: ["inquire"],
     data: {
       "inquire": "supported_chargable_banks"
     }
@@ -21,7 +21,7 @@ module.exports = {
   banks: {
     method: "put",
     route: [route, ""].join(""),
-    params: ["inquire*"],
+    params: ["inquire"],
     data: {
       "inquire": "banks"
     }
@@ -33,7 +33,10 @@ module.exports = {
   accountName: {
     method: "put",
     route: [route, ""].join(""),
-    params: ["inquire*", "accountnumber*", "bankcode*"]
+    params: ["accountnumber*", "bankcode*"],
+    data: {
+      "inquire": "accountname"
+    }
   },
 
   /**
