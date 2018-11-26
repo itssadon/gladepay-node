@@ -48,7 +48,6 @@
 
   * payment
     * cardPayment
-    * cardPayment
     * recurrent
     * installment
     * chargeCard
