@@ -102,9 +102,10 @@ module.exports = {
   validateOtp: {
     method: "put",
     route: route,
-    params: [{
+    params: ["txnRef*", "otp*"],
+    data: {
       "action": "validate"
-    }, "txnRef", "otp*"]
+    }
   },
 
   /**
