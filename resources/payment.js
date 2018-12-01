@@ -99,7 +99,7 @@ module.exports = {
   /**
    * OTP Validation
    */
-  validateOtp: {
+  validateOTP: {
     method: "put",
     route: route,
     params: ["txnRef*", "otp*"],
