@@ -62,6 +62,7 @@
     * supportedChargableBanks
     * banks
     * accountName
+    * verifyBVN
     * cardDetails
     * cardCharge
     * accountCharge

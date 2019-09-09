@@ -40,6 +40,18 @@ module.exports = {
   },
 
   /**
+   * Verify Bank Verification Number
+   */
+  verifyBVN: {
+    method: "put",
+    route: [route, ""].join(""),
+    params: ["bvn*"],
+    data: {
+      "inquire": "bvn"
+    }
+  },
+
+  /**
    * Get Card Details
    */
   cardDetails: {
