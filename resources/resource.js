@@ -86,5 +86,17 @@ module.exports = {
       "inquire": "charges",
       "type": "account"
     }
+  },
+
+  /**
+   * Personalized Account
+   */
+  personlizedAccount: {
+    method: "put",
+    route: route,
+    params: ["name*", "reference*", "email*"],
+    data: {
+      "request": "personalized-accounts"
+    }
   }
 };
