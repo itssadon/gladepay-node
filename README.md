@@ -66,6 +66,7 @@
     * cardDetails
     * cardCharge
     * accountCharge
+    * personlizedAccount
 
 
 ## Tests
