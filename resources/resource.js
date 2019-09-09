@@ -42,7 +42,7 @@ module.exports = {
   /**
    * Verify Bank Verification Number
    */
-  bankVerificationNumber: {
+  verifyBVN: {
     method: "put",
     route: [route, ""].join(""),
     params: ["bvn*"],
