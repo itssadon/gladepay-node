@@ -68,10 +68,11 @@
     * accountCharge
     * personlizedAccount
   * loansAndInvestments
-    * createProfile
-    * updateProfile
-    * listProfiles
-    * viewProfile
+    * client
+      * createProfile
+      * updateProfile
+      * listProfiles
+      * viewProfile
 
 
 ## Tests
