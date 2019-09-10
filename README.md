@@ -56,9 +56,9 @@
     * verify
     * accountPayment
     * validateAccount
-  * disburse
+  * disbursement
     * transfer
-  * resource
+  * resources
     * supportedChargableBanks
     * banks
     * accountName
@@ -67,6 +67,11 @@
     * cardCharge
     * accountCharge
     * personlizedAccount
+  * loansAndInvestments
+    * createProfile
+    * updateProfile
+    * listProfiles
+    * viewProfile
 
 
 ## Tests
