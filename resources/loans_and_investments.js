@@ -33,4 +33,19 @@ module.exports = {
             "action": "update"
         }
     },
+
+    /**
+     * List of all profiles created
+     */
+    listProfiles: {
+        method: "put",
+        route: [route, ""].join("/client"),
+        params: [
+            "offset",
+            "limit"
+        ],
+        data: {
+            "action": "list"
+        }
+    },
 };
