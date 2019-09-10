@@ -1,14 +1,14 @@
 "use strict";
 
-var route = "/clients";
+var route = "";
 
 module.exports = {
     /**
-     * Create Profile
+     * Create Client Profile
      */
     createProfile: {
         method: "put",
-        route: route,
+        route: [route, ""].join("/client"),
         params: [
             "data*",
             "verify_bvn"
@@ -17,5 +17,5 @@ module.exports = {
             "action": "create",
             "status": "pending_approval"
         }
-    }
+    },
 };
