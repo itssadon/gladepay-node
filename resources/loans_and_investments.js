@@ -48,4 +48,18 @@ module.exports = {
             "action": "list"
         }
     },
+
+    /**
+     * View details of a profile
+     */
+    viewProfile: {
+        method: "put",
+        route: [route, ""].join("/client"),
+        params: [
+            "client_id*"
+        ],
+        data: {
+            "action": "view"
+        }
+    }
 };
