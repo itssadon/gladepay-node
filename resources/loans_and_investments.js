@@ -18,4 +18,19 @@ module.exports = {
             "status": "pending_approval"
         }
     },
+
+    /**
+     * Update Client Profile
+     */
+    updateProfile: {
+        method: "put",
+        route: [route, ""].join("/client"),
+        params: [
+            "client_id*",
+            "data*"
+        ],
+        data: {
+            "action": "update"
+        }
+    },
 };
