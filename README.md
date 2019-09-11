@@ -70,6 +70,7 @@
   * loansAndInvestments
     * loans
       * request
+      * process
     * client
       * createProfile
       * updateProfile
