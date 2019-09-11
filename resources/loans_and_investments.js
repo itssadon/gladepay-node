@@ -20,7 +20,25 @@ module.exports = {
                 "tax_applied*",
                 "tax_rate*",
                 "period*"
-            ]
+            ],
+            data: {
+                "action": "request"
+            }
+        },
+
+        /**
+         * Process the loan request by the client
+         */
+        process: {
+            method: "put",
+            route: [route, ""].join("/loans"),
+            params: [
+                "loan_id*",
+                "status*"
+            ],
+            data: {
+                "action": "process"
+            }
         }
     },
 
