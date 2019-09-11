@@ -3,6 +3,30 @@
 var route = "";
 
 module.exports = {
+    /**
+     * Loans
+     */
+    loans: {
+        /**
+         * Make a request for loans
+         */
+        request: {
+            method: "put",
+            route: [route, ""].join("/loans"),
+            params: [
+                "client_id*",
+                "interestSettings*",
+                "amount*",
+                "tax_applied*",
+                "tax_rate*",
+                "period*"
+            ]
+        }
+    },
+
+    /**
+     * Clients
+     */
     client: {
         /**
          * Create Client Profile
