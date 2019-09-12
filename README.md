@@ -71,6 +71,8 @@
     * loans
       * request
       * process
+      * list
+      * view
     * client
       * createProfile
       * updateProfile
