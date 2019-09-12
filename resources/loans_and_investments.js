@@ -91,6 +91,21 @@ module.exports = {
                 data: {
                     "action": "repay"
                 }
+            },
+
+            /**
+             * Validate repayment
+             */
+            validate: {
+                method: "put",
+                route: [route, ""].join("/validate"),
+                params: [
+                    "txnRef*",
+                    "otp*"
+                ],
+                data: {
+                    "action": "validate"
+                }
             }
         }
     },
