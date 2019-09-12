@@ -68,6 +68,14 @@
     * accountCharge
     * personlizedAccount
   * loansAndInvestments
+    * loans
+      * request
+      * process
+      * list
+      * view
+      * payment
+        * repay
+        * validate
     * client
       * createProfile
       * updateProfile
@@ -109,5 +117,5 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-npm]: https://www.npmjs.com/package/gladepay-node
 [link-downloads]: https://www.npmjs.com/package/gladepay-node
 
-[link-author]: https://github.com/itssaon
+[link-author]: https://github.com/itssadon
 [link-contributors]: ../../contributors
