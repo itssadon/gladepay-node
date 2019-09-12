@@ -68,6 +68,30 @@ module.exports = {
             data: {
                 "action": "view"
             }
+        },
+
+        /**
+         * Loan repayment
+         */
+        payment: {
+            /**
+             * Initiate repayment
+             */
+            repay: {
+                method: "put",
+                route: [route, ""].join("/repay"),
+                params: [
+                    "loan_id*",
+                    "payment_method",
+                    "ip",
+                    "fingerprint",
+                    "card",
+                    "meta"
+                ],
+                data: {
+                    "action": "repay"
+                }
+            }
         }
     },
 
