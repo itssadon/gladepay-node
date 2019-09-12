@@ -54,6 +54,20 @@ module.exports = {
             data: {
                 "action": "list"
             }
+        },
+
+        /**
+         * View details of the loan
+         */
+        view: {
+            method: "put",
+            route: [route, ""].join("/loans"),
+            params: [
+                "loan_id*"
+            ],
+            data: {
+                "action": "view"
+            }
         }
     },
 
