@@ -73,6 +73,9 @@
       * process
       * list
       * view
+      * payment
+        * repay
+        * validate
     * client
       * createProfile
       * updateProfile
