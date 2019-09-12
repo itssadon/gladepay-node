@@ -39,6 +39,21 @@ module.exports = {
             data: {
                 "action": "process"
             }
+        },
+
+        /**
+         * List the number of loans
+         */
+        list: {
+            method: "put",
+            route: [route, ""].join("/loans"),
+            params: [
+                "offset",
+                "limit"
+            ],
+            data: {
+                "action": "list"
+            }
         }
     },
 
