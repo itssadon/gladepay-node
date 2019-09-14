@@ -76,6 +76,19 @@
       * payment
         * repay
         * validate
+    * investments
+      * savings
+        * create
+        * list
+        * view
+        * cashout
+        * deposit
+        * validate
+      * thrift
+        * create
+        * list
+        * subscriptions
+        * subscribe
     * client
       * createProfile
       * updateProfile
