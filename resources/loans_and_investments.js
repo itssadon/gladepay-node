@@ -164,6 +164,23 @@ module.exports = {
                 data: {
                     "action": "view_savings"
                 }
+            },
+
+            /**
+             * Cashout from a savings
+             */
+            cashout: {
+                method: "put",
+                route: [route, ""].join("/investments"),
+                params: [
+                    "savings_id*",
+                    "client_id*",
+                    "amount*",
+                    "method*"
+                ],
+                data: {
+                    "action": "cashout"
+                }
             }
         }
     },

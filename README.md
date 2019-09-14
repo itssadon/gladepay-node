@@ -81,6 +81,7 @@
         * create
         * list
         * view
+        * cashout
     * client
       * createProfile
       * updateProfile
