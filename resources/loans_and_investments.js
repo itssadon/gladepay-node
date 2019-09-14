@@ -181,6 +181,25 @@ module.exports = {
                 data: {
                     "action": "cashout"
                 }
+            },
+
+            /**
+             * Deposit to savings
+             */
+            deposit: {
+                method: "put",
+                route: [route, ""].join("/investments"),
+                params: [
+                    "savings_id*",
+                    "payment_method*",
+                    "ip",
+                    "fingerprint",
+                    "card",
+                    "amount*"
+                ],
+                data: {
+                    "action": "deposit"
+                }
             }
         }
     },
