@@ -115,21 +115,41 @@ module.exports = {
      */
     investments: {
         /**
-         * Create savings
+         * Savings
          */
-        create: {
-            method: "put",
-            route: [route, ""].join("/investments"),
-            params: [
-                "name*",
-                "client_id*",
-                "interestSettings*",
-                "tax_applied*",
-                "tax_rate*",
-                "period*"
-            ],
-            data: {
-                "action": "create_savings"
+        savings: {
+            /**
+             * Create savings
+             */
+            create: {
+                method: "put",
+                route: [route, ""].join("/investments"),
+                params: [
+                    "name*",
+                    "client_id*",
+                    "interestSettings*",
+                    "tax_applied*",
+                    "tax_rate*",
+                    "period*"
+                ],
+                data: {
+                    "action": "create_savings"
+                }
+            },
+
+            /**
+             * List all the savings the client has
+             */
+            list: {
+                method: "put",
+                route: [route, ""].join("/investments"),
+                params: [
+                    "client_id",
+                    "offset"
+                ],
+                data: {
+                    "action": "list_savings"
+                }
             }
         }
     },

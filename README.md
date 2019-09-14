@@ -77,7 +77,9 @@
         * repay
         * validate
     * investments
-      * create
+      * savings
+        * create
+        * list
     * client
       * createProfile
       * updateProfile
