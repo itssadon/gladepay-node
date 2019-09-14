@@ -84,6 +84,11 @@
         * cashout
         * deposit
         * validate
+      * thrift
+        * create
+        * list
+        * subscriptions
+        * subscribe
     * client
       * createProfile
       * updateProfile

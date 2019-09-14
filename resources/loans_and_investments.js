@@ -216,6 +216,73 @@ module.exports = {
                     "action": "validate"
                 }
             }
+        },
+
+        /**
+         * Thrift
+         */
+        thrift: {
+            /**
+             * Create a thrift plan
+             */
+            create: {
+                method: "put",
+                route: [route, ""].join("/investments"),
+                params: [
+                    "name*",
+                    "amount*",
+                    "start_date*",
+                    "member_required*",
+                    "frequency*"
+                ],
+                data: {
+                    "action": "create_plan"
+                }
+            },
+
+            /**
+             * List of all thrift plans on merchant account
+             */
+            list: {
+                method: "put",
+                route: [route, ""].join("/investments"),
+                params: [
+                    "offset",
+                    "limits"
+                ],
+                data: {
+                    "action": "list_plans"
+                }
+            },
+
+            /**
+             * View subscription
+             */
+            subscriptions: {
+                method: "put",
+                route: [route, ""].join("/investments"),
+                params: [
+                    "thrift_id*"
+                ],
+                data: {
+                    "action": "subscriptions"
+                }
+            },
+
+            /**
+             * Subscribe to a thrift plan
+             */
+            subscribe: {
+                method: "put",
+                route: [route, ""].join("/investments"),
+                params: [
+                    "savings_id*",
+                    "thrift_id*"
+                ],
+                data: {
+                    "action": "subscribe"
+                }
+            }
         }
     },
 
