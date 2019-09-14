@@ -200,6 +200,21 @@ module.exports = {
                 data: {
                     "action": "deposit"
                 }
+            },
+
+            /**
+             * Validate repayment
+             */
+            validate: {
+                method: "put",
+                route: [route, ""].join("/investments"),
+                params: [
+                    "txnRef*",
+                    "otp*"
+                ],
+                data: {
+                    "action": "validate"
+                }
             }
         }
     },

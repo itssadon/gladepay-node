@@ -83,6 +83,7 @@
         * view
         * cashout
         * deposit
+        * validate
     * client
       * createProfile
       * updateProfile
