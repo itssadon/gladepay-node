@@ -150,6 +150,20 @@ module.exports = {
                 data: {
                     "action": "list_savings"
                 }
+            },
+
+            /**
+             * View details of a savings account
+             */
+            view: {
+                method: "put",
+                route: [route, ""].join("/investments"),
+                params: [
+                    "savings_id*"
+                ],
+                data: {
+                    "action": "view_savings"
+                }
             }
         }
     },

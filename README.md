@@ -80,6 +80,7 @@
       * savings
         * create
         * list
+        * view
     * client
       * createProfile
       * updateProfile
